@@ -28,22 +28,14 @@ if ($user = authorize_user($_GET["login"], $_GET["pass"])) {
 			case "saveAvatar":
 			    $answer["avatar"] = saveAvatar($_FILES["avatar"]);
 			    break;
-			case "updateLocation":
+			case "updateCoords":
 			    $answer["status"] = updateCoords($_REQUEST["lon"], $_REQUEST["lat"]);
 			case "getFriends":
 			    break;
 			case "getEvents":
 			    $answer["events"] = getEvents();
-			case "searchPeople":
-			    break;
-			case "sendFriendRequest":
-				break;
-			case "confirmFriendRequest":
-				break;
-			case "denyFriendRequest":
-				break;
 			case "sendMessage":
-				$answer["message"] = sendPrivateMessage(intval($_REQUEST["recepient_id"]), array("message"=>$_REQUEST["message"]));
+
 			    break;
 			case "search":
 			    $answer["people"] = searchPeople(trim($_REQUEST["q"]));
