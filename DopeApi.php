@@ -4,7 +4,7 @@ require_once 'FoursquareAPI.class.php';
 require_once 'CFacebook.php';
 ?>
 <?php
-OnLoad();
+//OnLoad();
 class funcs_code 
 {   
   // var $conn="";
@@ -30,7 +30,7 @@ class funcs_code
      $result=mysql_query($sql_q);
 	 if(!$result){die(mysql_error());}else{return $result;}
    }  
-}
+};
    
  function OnLoad()
    {
@@ -62,6 +62,9 @@ class funcs_code
 	   else if($method == 'GetLocations')
 	   {
 		   GetLocations();
+	   }else if($method == 'GetFacebookUser')
+	   {
+	   		GetFacebookUser();
 	   }	       
    }   
 	
@@ -490,8 +493,5 @@ $q = "INSERT INTO locations VALUES ('$LocationID','$Name','$Phone','$FormattedPh
 }	
 function GetFacebookUser()
 {
-	$Facebook = new CFacebook();
-	$User = $Facebook->GetFBProfileInformation();
-	
-	
-}	
+	return "HI";
+}

@@ -28,25 +28,31 @@ class CFacebook
 				return $FBProfile;
 			}catch (FacebookApiException $e)
 			{
-				/ If the user is logged out, you can have a 
+				//send back to UI to have user sign in
+				
+				// If the user is logged out, you can have a 
         // user ID even though the access token is invalid.
         // In this case, we'll get an exception, so we'll
         // just ask the user to login again here.
-        $login_url = $facebook->getLoginUrl(); 
+        $login_url = $this->FBObject->getLoginUrl(); 
         echo 'Please <a href="' . $login_url . '">login.</a>';
         error_log($e->getType());
         error_log($e->getMessage());
+		
 			}
 		}else
 			{
-				/ If the user is logged out, you can have a 
+				//return to UI taht user isn't logged in and have user re-sign in
+								
+				//If the user is logged out, you can have a 
         // user ID even though the access token is invalid.
         // In this case, we'll get an exception, so we'll
         // just ask the user to login again here.
-        $login_url = $facebook->getLoginUrl(); 
+        $login_url = $this->FBObject->getLoginUrl(); 
         echo 'Please <a href="' . $login_url . '">login.</a>';
         error_log($e->getType());
         error_log($e->getMessage());
+		
 			}
 	}
 };
