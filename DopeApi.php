@@ -4,7 +4,7 @@ require_once 'FoursquareAPI.class.php';
 require_once 'CFacebook.php';
 ?>
 <?php
-//OnLoad();
+OnLoad();
 class funcs_code 
 {   
   // var $conn="";
@@ -493,5 +493,14 @@ $q = "INSERT INTO locations VALUES ('$LocationID','$Name','$Phone','$FormattedPh
 }	
 function GetFacebookUser()
 {
-	return "HI";
+	//Create new Facebook object
+	$MyFacebook = new CFacebook();
+	//Get Profile information
+	$FBUser = $MyFacebook->GetFBProfileInformation();
+	//Collect data
+	$Data = array("UserName"=>$FBUser['username'],"Name"=>$FBUser['name'],"HometownID"=>$FBUser['hometown']['id'],"HometownName"=>$FBUser['hometown']['name'],"FavoriteTeams"=>$FBUser['favorite_teams']);
+	//JSON encode data
+	$ReturnData = json_encode($Data);
+	//return data
+	return $ReturnData;
 }
