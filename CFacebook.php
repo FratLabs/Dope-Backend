@@ -23,6 +23,8 @@ class CFacebook
 	{
 		$FBProfile = "";
 		$ID = $this->FBObject->getUser();
+		var_dump($ID);
+		echo "<br />";
 		if($ID)
 		{
 			try {
@@ -36,6 +38,7 @@ class CFacebook
         // user ID even though the access token is invalid.
         // In this case, we'll get an exception, so we'll
         // just ask the user to login again here.
+        echo "has ID <br />";
         $login_url = $this->FBObject->getLoginUrl(); 
         echo 'Please <a href="' . $login_url . '">login.</a>';
         error_log($e->getType());
@@ -49,6 +52,7 @@ class CFacebook
         // user ID even though the access token is invalid.
         // In this case, we'll get an exception, so we'll
         // just ask the user to login again here.
+        echo "no ID <br />";
         $Page = "http://fratlabs.com/FacebookTest.php";
         $login_url = $this->FBObject->getLoginUrl(array('scope'=>'email,publish_stream,user_likes,user_hometown','redirect_uri'=>$Page)); 
         echo 'Please <a href="' . $login_url . '">login.</a>';
