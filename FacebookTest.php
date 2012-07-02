@@ -45,12 +45,6 @@
  * /*
  */
 
-  ?>
-<!--
-  </body>
-</html>
--->
-<?php
 /*
 require_once 'CFacebook.php';
 
@@ -74,7 +68,7 @@ echo "<br />";
 echo "<br />";
 echo "<b>Profile Info:</b> <br />";
 echo "<b>Picture:</b> <br />";
-echo "<img src=\"https://graph.facebook.com/".$Data['username']."/picture\" />";
+echo "<img src=\"https://graph.facebook.com/".$Data['UserName']."/picture\" />";
 echo "<br />";
 echo "Name: ".$Data["Name"]."<br />";
 echo "Hometown ID: ".$Data["HometownID"]."<br />";
