@@ -23,6 +23,8 @@ class CFacebook
 	//Get profile information
 	public function GetFBProfileInformation()
 	{
+		echo $_GET['signed_request'];
+		echo $this->FBObject->getSignedRequest();
 		$FBProfile = "";
 		$ID = $this->FBObject->getUser();
 		echo "<br />";
@@ -57,15 +59,15 @@ class CFacebook
         // just ask the user to login again here.
         $Page = "http://fratlabs.com/FacebookTest.php";
         $login_url = $this->FBObject->getLoginUrl(array('scope'=>'email,publish_stream,user_likes,user_hometown','redirect_uri'=>$Page));
-		$logout_url = $this->FBObject->getLogoutUrl(array('next'=>'http://fratlabs.com/FacebookTest.php')); 
+		//$logout_url = $this->FBObject->getLogoutUrl(array('next'=>'http://fratlabs.com/FacebookTest.php')); 
         echo 'Please <a href="' . $login_url . '">login.</a>';
-		echo 'Logout Url: <a href="'. $logout_url.'">Logout</a>';
+		//echo 'Logout Url: <a href="'. $logout_url.'">Logout</a>';
         error_log($e->getType());
         error_log($e->getMessage());
 		 
 			}
 			
-		echo $this->FBObject->getLogoutUrl(array('next'=>'http://fratlabs.com/FacebookTest.php'));
+		//echo $this->FBObject->getLogoutUrl(array('next'=>'http://fratlabs.com/FacebookTest.php'));
 	}
 
 

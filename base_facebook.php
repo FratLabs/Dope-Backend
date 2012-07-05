@@ -448,7 +448,6 @@ abstract class BaseFacebook
       // we've already determined this and cached the value.
       return $this->user;
     }
-
     return $this->user = $this->getUserFromAvailableData();
   }
 
@@ -904,6 +903,7 @@ abstract class BaseFacebook
    * @return array The payload inside it or null if the sig is wrong
    */
   protected function parseSignedRequest($signed_request) {
+
     list($encoded_sig, $payload) = explode('.', $signed_request, 2);
 
     // decode the data
@@ -922,7 +922,6 @@ abstract class BaseFacebook
       self::errorLog('Bad Signed JSON signature!');
       return null;
     }
-
     return $data;
   }
 
