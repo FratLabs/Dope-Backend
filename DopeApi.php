@@ -126,7 +126,7 @@ function SignUp() {
 	/////	If there are no matches, follow the if statement below, otherwise return -1
 	if (mysql_num_rows($res) == 0) {
 	/////	Sets users values, and inserts them into the database. If successful, send email with activation code. Otherwise, return 0.	
-		$q = "INSERT INTO users VALUES ('','$email','$pwd','$activationcode','$date',0,'','',1,'',2012,'','','','')";
+		$q = "INSERT INTO users VALUES ('','$email','$pwd','$activationcode','$date',0,'','',1,'','2012','','','','')";
 		mysql_query($q);
 		if (mysql_query($q)) {
 			$output = "1";
@@ -168,7 +168,7 @@ function ActivateUser() {
 	$output = "";
 	
 	/////	Sends a query for users with a matching code, sets their status to activated.
-	$q = "UPDATE chaysr_users SET Status = 10 WHERE ActivationCode = '$activationcode'";
+	$q = "UPDATE chaysr_users SET Status=10 WHERE ActivationCode = '$activationcode'";
 	if (mysql_query($q)) {
 	/////	If query is successful, copy result into $res, and fetch it's row # into $row
 		$q = "SELECT UserID FROM chaysr_users WHERE ActivationCode = '$activationcode' AND Status = 10";
