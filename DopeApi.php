@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php //THIS IS NOT INCLUDED IN Pulse!  Only on FratLabs server!  Must FTP over after updates!
 require_once 'FoursquareAPI.class.php';
 require_once 'CFacebook.php';
