@@ -126,7 +126,7 @@ function SignUp() {
 	/////	If there are no matches, follow the if statement below, otherwise return -1
 	if (mysql_num_rows($res) == 0) {
 	/////	Sets users values, and inserts them into the database. If successful, send email with activation code. Otherwise, return 0.	
-		$q = "INSERT INTO chaysr_users VALUES ('','$email','$pwd','$activationcode','$date',0,'','',1,'','2012','','','','')";
+		$q = "INSERT INTO chaysr_users VALUES ('','$email','$pwd','$activationcode','$date','0','','','1','','2012','')";
 		mysql_query($q);
 		if (mysql_query($q)) {
 			$output = "1";
